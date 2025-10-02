@@ -3,197 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALEX IS DUMB!!!</title>
+    <title>Totally Tubular 80's Vibes</title>
     <style>
         body {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ffff00);
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
             background-size: 400% 400%;
-            animation: backgroundMove 2s ease-in-out infinite alternate;
+            animation: gradientShift 3s ease infinite;
+            font-family: 'Courier New', monospace;
             overflow-x: hidden;
-            font-family: Comic Sans MS, cursive;
+            min-height: 100vh;
         }
 
-        @keyframes backgroundMove {
+        @keyframes gradientShift {
             0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        .moving-text {
-            position: fixed;
-            font-size: 3rem;
+        .container {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 3px solid #00ffff;
+            margin: 20px;
+            box-shadow: 0 0 20px #ff00ff, inset 0 0 20px rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .title {
+            text-align: center;
+            color: #00ffff;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff;
+            margin-bottom: 30px;
             font-weight: bold;
-            color: #ff0000;
-            text-shadow: 3px 3px 0px #000000, -3px -3px 0px #ffffff;
-            animation: textMove 3s linear infinite, textScale 1s ease-in-out infinite alternate;
-            z-index: 1000;
-            white-space: nowrap;
+            letter-spacing: 3px;
+            animation: neonFlicker 2s infinite alternate;
         }
 
-        @keyframes textMove {
-            0% { transform: translateX(-100vw) rotate(0deg); }
-            100% { transform: translateX(100vw) rotate(360deg); }
+        @keyframes neonFlicker {
+            0% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff; }
+            100% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff; }
         }
 
-        @keyframes textScale {
-            0% { transform: scale(0.5); }
-            100% { transform: scale(1.5); }
+        .text-container {
+            background: #000;
+            border: 2px solid #ff00ff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: inset 0 0 10px #ff00ff;
+            max-height: 400px;
+            overflow-y: auto;
         }
 
-        .image-container {
-            position: absolute;
-            animation: imageFloat 4s ease-in-out infinite;
+        .scrolling-text {
+            color: #00ff00;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-shadow: 0 0 5px #00ff00;
+            word-wrap: break-word;
+            animation: textGlow 1.5s ease-in-out infinite alternate;
         }
 
-        @keyframes imageFloat {
-            0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
-            25% { transform: translateY(-50px) rotate(90deg) scale(1.2); }
-            50% { transform: translateY(0px) rotate(180deg) scale(0.8); }
-            75% { transform: translateY(50px) rotate(270deg) scale(1.1); }
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 5px #00ff00; }
+            100% { text-shadow: 0 0 10px #00ff00, 0 0 15px #00ff00; }
         }
 
-        .alex-image {
-            width: 100px;
-            height: 100px;
-            border: 5px solid #ff0000;
-            border-radius: 50%;
-            animation: imageSpin 2s linear infinite, imageGlow 1s ease-in-out infinite alternate;
+        .retro-border {
+            border: 3px solid;
+            border-image: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff) 1;
+            animation: borderRotate 4s linear infinite;
         }
 
-        @keyframes imageSpin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes borderRotate {
+            0% { border-image: linear-gradient(0deg, #ff00ff, #00ffff, #ffff00, #ff00ff) 1; }
+            25% { border-image: linear-gradient(90deg, #ff00ff, #00ffff, #ffff00, #ff00ff) 1; }
+            50% { border-image: linear-gradient(180deg, #ff00ff, #00ffff, #ffff00, #ff00ff) 1; }
+            75% { border-image: linear-gradient(270deg, #ff00ff, #00ffff, #ffff00, #ff00ff) 1; }
+            100% { border-image: linear-gradient(360deg, #ff00ff, #00ffff, #ffff00, #ff00ff) 1; }
         }
 
-        @keyframes imageGlow {
-            0% { box-shadow: 0 0 10px #ff0000; }
-            100% { box-shadow: 0 0 30px #ff0000, 0 0 50px #ff0000; }
-        }
-
-        .red-circle {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #ff0000;
-            border-radius: 50%;
-            animation: circleMove 2s linear infinite;
-        }
-
-        @keyframes circleMove {
-            0% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(20px, -20px) scale(1.5); }
-            50% { transform: translate(-20px, 20px) scale(0.5); }
-            75% { transform: translate(30px, 30px) scale(1.2); }
-            100% { transform: translate(0, 0) scale(1); }
-        }
-
-        .chaos-text {
-            position: fixed;
+        .footer {
+            text-align: center;
             color: #ffff00;
-            font-size: 2rem;
-            font-weight: bold;
-            text-shadow: 2px 2px 0px #000000;
-            animation: chaosMove 5s linear infinite;
-            z-index: 999;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            text-shadow: 0 0 5px #ffff00;
         }
 
-        @keyframes chaosMove {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            20% { transform: translate(200px, 100px) rotate(72deg); }
-            40% { transform: translate(-150px, 200px) rotate(144deg); }
-            60% { transform: translate(300px, -100px) rotate(216deg); }
-            80% { transform: translate(-200px, -150px) rotate(288deg); }
-            100% { transform: translate(0, 0) rotate(360deg); }
+        /* Scrollbar styling for that retro feel */
+        .text-container::-webkit-scrollbar {
+            width: 12px;
         }
 
-        .blink {
-            animation: blink 0.5s linear infinite;
+        .text-container::-webkit-scrollbar-track {
+            background: #000;
+            border: 1px solid #ff00ff;
         }
 
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+        .text-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            border-radius: 6px;
         }
     </style>
 </head>
 <body>
-    <!-- Moving text elements -->
-    <div class="moving-text" style="top: 10%; animation-delay: 0s;">oo alex is dumb!!!!11!!</div>
-    <div class="moving-text" style="top: 30%; animation-delay: 1s;">oo alex is dumb!!!!11!!</div>
-    <div class="moving-text" style="top: 50%; animation-delay: 2s;">oo alex is dumb!!!!11!!</div>
-    <div class="moving-text" style="top: 70%; animation-delay: 0.5s;">oo alex is dumb!!!!11!!</div>
-    <div class="moving-text" style="top: 90%; animation-delay: 1.5s;">oo alex is dumb!!!!11!!</div>
-
-    <!-- Chaos text -->
-    <div class="chaos-text blink" style="top: 20%; left: 10%;">DUMB!!!</div>
-    <div class="chaos-text blink" style="top: 60%; right: 10%; animation-delay: 0.3s;">ALEX!!!</div>
-    <div class="chaos-text blink" style="bottom: 20%; left: 30%; animation-delay: 0.6s;">VERY DUMB!!!</div>
+    <div class="container retro-border">
+        <h1 class="title">◆ RADICAL 80'S TERMINAL ◆</h1>
+        
+        <div class="text-container">
+            <div class="scrolling-text" id="infiniteText"></div>
+        </div>
+        
+        <div class="footer">
+            ★ TOTALLY AWESOME INFINITE TEXT GENERATOR ★<br>
+            Press CTRL+C to escape... just kidding! 😎
+        </div>
+    </div>
 
     <script>
-        // Create multiple floating images with red circles
-        function createFloatingImage(x, y, delay) {
-            const container = document.createElement('div');
-            container.className = 'image-container';
-            container.style.left = x + 'px';
-            container.style.top = y + 'px';
-            container.style.animationDelay = delay + 's';
+        const textElement = document.getElementById('infiniteText');
+        const baseText = "oofer why did you get a c in math ";
+        let currentText = "";
+        let counter = 0;
 
-            const img = document.createElement('img');
-            img.src = 'gif.gif'; // now loads gif.gif from same folder
-            img.className = 'alex-image';
-            img.alt = 'Alex avatar';
-            img.onerror = function() {
-                this.src = '';
-                this.alt = 'Image failed to load';
-                this.style.background = '#ff0000';
-            };
-
-            // Add red circles around the image
-            for (let i = 0; i < 5; i++) {
-                const circle = document.createElement('div');
-                circle.className = 'red-circle';
-                circle.style.left = (Math.random() * 120) + 'px';
-                circle.style.top = (Math.random() * 120) + 'px';
-                circle.style.animationDelay = (Math.random() * 2) + 's';
-                container.appendChild(circle);
+        function addMoreText() {
+            // Add the phrase again
+            currentText += baseText;
+            counter++;
+            
+            // Update the display
+            textElement.textContent = currentText;
+            
+            // Auto-scroll to bottom to show the growing text
+            textElement.scrollTop = textElement.scrollHeight;
+            
+            // Add some variety in timing to make it feel more retro
+            const delay = Math.random() * 200 + 100;
+            setTimeout(addMoreText, delay);
+            
+            // Add a line break every 10 repetitions for readability
+            if (counter % 10 === 0) {
+                currentText += "\n";
             }
-
-            container.appendChild(img);
-            document.body.appendChild(container);
         }
 
-        // Create images scattered across the page
-        const positions = [
-            [100, 100], [300, 200], [500, 150], [700, 300], [200, 400],
-            [600, 450], [800, 100], [150, 600], [450, 500], [750, 550],
-            [50, 300], [350, 50], [550, 350], [250, 250], [650, 200],
-            [400, 400], [800, 400], [100, 500], [900, 250], [300, 600]
-        ];
+        // Start the infinite loop
+        addMoreText();
 
-        positions.forEach((pos, index) => {
-            createFloatingImage(pos[0], pos[1], index * 0.2);
-        });
-
-        // Add more chaos with random elements
+        // Add some retro sound effect simulation (visual only)
         setInterval(() => {
-            const randomText = document.createElement('div');
-            randomText.textContent = 'DUMB!!!';
-            randomText.style.position = 'fixed';
-            randomText.style.left = Math.random() * window.innerWidth + 'px';
-            randomText.style.top = Math.random() * window.innerHeight + 'px';
-            randomText.style.color = '#ff0000';
-            randomText.style.fontSize = '1.5rem';
-            randomText.style.fontWeight = 'bold';
-            randomText.style.zIndex = '1001';
-            randomText.style.animation = 'textScale 0.5s ease-in-out';
-            document.body.appendChild(randomText);
-
-            setTimeout(() => {
-                randomText.remove();
-            }, 1000);
-        }, 500);
+            if (Math.random() > 0.95) {
+                document.body.style.filter = 'brightness(1.2)';
+                setTimeout(() => {
+                    document.body.style.filter = 'brightness(1)';
+                }, 50);
+            }
+        }, 1000);
     </script>
-</body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9880e74db3f588b2',t:'MTc1OTM3MzU0NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
